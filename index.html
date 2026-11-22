@@ -475,7 +475,7 @@ h2.cal-h{font:700 .8rem var(--f-ui);letter-spacing:.08em;text-transform:uppercas
 <div class="wrap">
   <main id="app" tabindex="-1"></main>
 </div>
-<nav class="tabbar" id="tabbar" aria-label="Navigation rapide"><a href="#accueil" data-k="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>Accueil</a><a href="#candidats" data-k="cands"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.2c2.8.3 5 2.6 5 5.8"/></svg>Candidats</a><a href="#quiz" data-k="quiz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"/><path d="M12 17h.01"/></svg>Quiz</a><a href="#citations" data-k="quotes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h4v6H5v-2a4 4 0 0 1 2-4zM15 7h4v6h-6v-2a4 4 0 0 1 2-4z"/></svg>Citations</a><a href="#calendrier" data-k="cal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Agenda</a></nav>
+<nav class="tabbar" id="tabbar" aria-label="Navigation rapide"><a href="#accueil" data-k="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>Accueil</a><a href="#candidats" data-k="cands"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.2c2.8.3 5 2.6 5 5.8"/></svg>Programmes</a><a href="#quiz" data-k="quiz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"/><path d="M12 17h.01"/></svg>Quiz</a><a href="#citations" data-k="quotes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h4v6H5v-2a4 4 0 0 1 2-4zM15 7h4v6h-6v-2a4 4 0 0 1 2-4z"/></svg>Citations</a><a href="#calendrier" data-k="cal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Agenda</a></nav>
 <footer class="foot">
   <p>Ce site ne recommande aucun candidat. Chaque information renvoie à sa source : vérifiez-la en cas de doute. Les statuts évoluent chaque semaine.</p>
   <details class="credits"><summary>Crédits photos (Wikimedia Commons)</summary>
@@ -1521,7 +1521,7 @@ function buildMenu(current){
     e.stopPropagation();
     const open = ddBtn.getAttribute("aria-expanded") !== "true";
     ddBtn.setAttribute("aria-expanded", String(open)); ddPanel.hidden = !open;
-  }}, "Candidats", el("span", {class:"caret", "aria-hidden":"true"}));
+  }}, "Programmes", el("span", {class:"caret", "aria-hidden":"true"}));
   menu.replaceChildren(
     link("#accueil", "Accueil", "home"),
     el("div", {class:"dd"}, ddBtn, ddPanel),
@@ -1608,7 +1608,7 @@ function renderHome(){
         el("h1", {tabindex:"-1", id:"heading"}, "Ce que disent ", el("em", {}, "vraiment"), " les candidats."),
         el("p", {class:"lede"}, "Un suivi neutre de la campagne : le programme, l'actualité et les déclarations marquantes de chaque candidat, avec la date et la source de chaque phrase."),
         el("div", {class:"cta"},
-          el("a", {class:"btn primary", href:"#candidats"}, "Voir les candidats"),
+          el("a", {class:"btn primary", href:"#candidats"}, "Voir les programmes"),
           el("a", {class:"btn", href:"#citations"}, "Lire les citations"),
           el("a", {class:"btn", href:"#quiz"}, "Faire le quiz")
         ),
@@ -1665,7 +1665,7 @@ function renderCandidates(){
   const groups = families();
   const n = groups.length;
   app.replaceChildren(
-    pageHead("Les candidats", "Classés par famille politique, de la gauche à la droite. Cliquez sur un nom pour ouvrir sa fiche.", statusLegend()),
+    pageHead("Programmes", "Les candidats classés par famille politique, de la gauche à la droite. Touchez un candidat pour lire son programme.", statusLegend()),
     el("section", {class:"spec", "aria-label":"Candidats par famille politique, de la gauche à la droite"},
       groups.map((g, i) => el("div", {class:"fam-row"},
         el("div", {class:"fam-label"},
@@ -1681,7 +1681,7 @@ function renderCandidates(){
       ))
     )
   );
-  document.title = "Candidats | Présidentielle 2027";
+  document.title = "Programmes | Présidentielle 2027";
 }
 
 function renderQuotes(){
@@ -2021,7 +2021,7 @@ function renderCand(c){
   );
   const main = el("div", {class:"pc", style:colorStyle(c)}, ...tabsFor(c));
   app.replaceChildren(
-    el("a", {class:"back", href:"#candidats"}, "Tous les candidats"),
+    el("a", {class:"back", href:"#candidats"}, "Tous les programmes"),
     el("div", {class:"fiche"}, side, main)
   );
   document.title = c.name + " | Présidentielle 2027";
